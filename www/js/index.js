@@ -9,14 +9,14 @@ var app = {
         document.getElementById("btnInserir").addEventListener("click",app.inserir);  
     },
 
-    inserir: function(){
-        var db = firebase.firestore();
-
+    inserir: function() {
         let cnome = document.getElementById("txtNome").value;
         let ctelefone = document.getElementById("txtTelefone").value;
         let corigem = document.getElementById("txtOrigem").value;
         let cdata_contato = document.getElementById("txtDataContato").value;
         let cobservacao = document.getElementById("txtObservacao").value;
+        
+        var db = firebase.firestore();
 
         db.collection("agendamento").add({
             nome: cnome,
@@ -27,6 +27,7 @@ var app = {
         })
         .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
+            window.location.href = cordova.file.applicationDirectory + "www/index.html";
         })
         .catch((error) => {
             console.error("Error adding document: ", error);

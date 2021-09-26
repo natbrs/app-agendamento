@@ -18,7 +18,7 @@ var app = {
         let cdata_contato = document.getElementById("txtDataContato").value;
         let cobservacao = document.getElementById("txtObservacao").value;
 
-        db.collection("agendamentos").add({
+        db.collection("agendamento").add({
             nome: cnome,
             telefone: ctelefone,
             origem: corigem,
